@@ -1,14 +1,14 @@
 <%= form_with model: article do |form|%>
-    <div>
+    <div class="form-row">
         <%= form.label :title %>
         <%= form.text_field :title %>
          <% article.errors.full_messages_for(:title).each do |message| %>
             <div><%= message %></div>
         <% end %>
-  </div>
+    </div>
     </div>
 
-    <div>
+    <div class="form-row">
         <%= form.label :body%>
         <%= form.text_area :body %>
          <% article.errors.full_messages_for(:body).each do |message| %>
@@ -16,12 +16,13 @@
         <% end %>
     </div>
 
-    <div>
+    <div class="form-row">
         <%= form.label :status %><br>
         <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
     </div>
 
-    <div>
-        <%= form.submit%>
+    <div class="form-row btn">
+        
+        <button type="submit">Create article</button>
     </div>
 <% end %>
